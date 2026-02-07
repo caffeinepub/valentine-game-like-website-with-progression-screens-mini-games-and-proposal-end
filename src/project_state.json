@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build an interactive Valentine-themed game-like website with a Fortnite/Valorant-style progression UI, featuring multiple story levels, mini-games, and a final Valentine proposal flow.",
+  "architectural_notes": [
+    "Website experience is structured as sequential game-like screens/levels with a defined mood progression: Fun → Nostalgia → Comfort → Emotional → Proposal → Celebration.",
+    "UI direction: Fortnite/Valorant-style progression screens, popups, XP/achievement feedback.",
+    "Interactive branching behavior: Proposal screen includes 'TRY AGAIN' that increases the prominence/size of 'YES' option."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Game event background illustration, dark arena-style with neon green/orange accents (valentine-event-bg.dim_1920x1080.png)\n- Loot chest illustration, stylized game chest with subtle heart motif (loot-chest.dim_512x512.png)\n- Achievement badge/trophy icon, game-rank style with heart detail (valentine-achievement-badge.dim_512x512.png)\n- Pixel heart sprite sheet, 8-frame animation on transparent background (pixel-hearts-sprites.dim_512x64.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-game-like-website-experience-that-follows-the-provided-screen-level-flow-in-order-with-clear-navigation-state-transitions-boot-screen-lobby-level-1-mini-game-1-level-2-mini-game-2-level-3-level-4-mini-game-3-final-proposal-ending-achievement",
+      "title": "Create a single-page, game-like website experience that follows the provided screen/level flow in order, with clear navigation/state transitions (Boot Screen → Lobby → Level 1 → Mini Game 1 → Level 2 → Mini Game 2 → Level 3 → Level 4 → Mini Game 3 → Final Proposal → Ending/Achievement).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-screen-1-game-boot-screen-with-the-exact-loading-style-text-blocks-and-a-press-start-button-to-proceed",
+      "title": "Implement Screen 1 (Game Boot Screen) with the exact loading-style text blocks and a ▶ PRESS START button to proceed.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-screen-2-game-lobby-showing-player-mode-status-a-teammate-request-notification-pop-and-a-start-match-button-to-proceed",
+      "title": "Implement Screen 2 (Game Lobby) showing Player/Mode/Status, a teammate request notification pop, and a ▶ START MATCH button to proceed.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-level-1-origin-story-mission-as-a-mission-intro-plus-the-listed-story-beats-presented-as-pop-ups-mini-animations-story-loot-unlocks-ending-with-a-mission-complete-and-reward-unlocked-message",
+      "title": "Implement Level 1 (Origin Story Mission) as a mission intro plus the listed story beats presented as pop-ups/mini-animations (\"story loot\" unlocks), ending with a mission complete and reward unlocked message.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-mini-game-1-defuse-the-bad-day-as-a-multiple-choice-interaction-with-the-given-scenario-and-choices-where-selecting-call-or-cuddle-results-in-a-win-state-and-other-choices-result-in-a-clear-non-win-state-and-allow-retry",
+      "title": "Implement Mini Game 1 “Defuse the Bad Day” as a multiple-choice interaction with the given scenario and choices, where selecting “Call or Cuddle” results in a win state and other choices result in a clear non-win state and allow retry.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-level-2-memory-arena-where-the-provided-memories-unlock-like-rewards-each-presented-with-a-memory-unlocked-treatment-and-then-allow-continuing-to-mini-game-2",
+      "title": "Implement Level 2 (Memory Arena) where the provided memories unlock like rewards, each presented with a “❤️ Memory Unlocked” treatment, and then allow continuing to Mini Game 2.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-mini-game-2-fortnite-loot-drop-with-a-chest-drop-open-interaction-on-click-the-chest-opens-and-reveals-loot-including-1-million-kissies-then-allow-continuing-to-level-3",
+      "title": "Implement Mini Game 2 “Fortnite Loot Drop” with a chest drop/open interaction; on click, the chest opens and reveals loot including “1 Million kissies”, then allow continuing to Level 3.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-level-3-reasons-i-like-you-showing-the-provided-reasons-in-a-fun-game-like-list-presentation-and-a-reward-ui-reading-relationship-xp-increased-then-allow-continuing-to-level-4",
+      "title": "Implement Level 3 “Reasons I Like You” showing the provided reasons in a fun, game-like list presentation and a reward UI reading “Relationship XP Increased”, then allow continuing to Level 4.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-level-4-support-mission-with-the-provided-appreciation-moments-and-a-result-screen-message-we-survived-together-then-allow-continuing-to-mini-game-3",
+      "title": "Implement Level 4 “Support Mission” with the provided appreciation moments and a result screen/message “WE SURVIVED TOGETHER”, then allow continuing to Mini Game 3.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-mini-game-3-fifa-penalty-shootout-as-a-multiple-choice-question-where-selecting-efforts-and-showing-up-produces-a-goal-success-state-and-other-choices-produce-a-non-win-state-with-retry-then-allow-continuing-to-the-final-proposal-level",
+      "title": "Implement Mini Game 3 “FIFA Penalty Shootout” as a multiple-choice question where selecting “Efforts and showing up” produces a GOAL/success state and other choices produce a non-win state with retry, then allow continuing to the Final Proposal level.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-final-level-proposal-flow-show-mission-completion-for-solo-mode-then-present-duo-mode-request-display-the-provided-romantic-message-and-the-question-will-you-be-my-valentine-with-buttons-yes-and-try-again-clicking-try-again-repeatedly-makes-the-yes-button-grow-progressively-larger-until-clicked",
+      "title": "Implement the Final Level Proposal flow: show mission completion for solo mode, then present “❤️ DUO MODE REQUEST ❤️”, display the provided romantic message and the question “💘 Will you be my Valentine?”, with buttons YES ❤️ and TRY AGAIN 😄; clicking TRY AGAIN repeatedly makes the YES button grow progressively larger until clicked.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-ending-achievement-screen-shown-after-yes-with-the-provided-achievement-title-rewards-list-and-final-line",
+      "title": "Implement the Ending/Achievement screen shown after YES with the provided achievement title, rewards list, and final line.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-optional-polish-elements-mentioned-in-the-concept-game-like-sound-effects-toggleable-xp-achievement-popups-pixel-hearts-animation-moments-inside-jokes-style-popups-and-at-least-one-fake-loading-screen-transition-between-major-sections",
+      "title": "Add optional polish elements mentioned in the concept: game-like sound effects (toggleable), XP/achievement popups, pixel hearts animation moments, inside-jokes-style popups, and at least one fake loading screen transition between major sections.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-and-apply-a-coherent-visual-theme-inspired-by-fortnite-valorant-style-progression-screens-dark-ui-panels-bold-typography-high-contrast-accents-using-a-distinct-color-palette-that-is-not-blue-purple-and-use-it-consistently-across-all-screens",
+      "title": "Establish and apply a coherent visual theme inspired by Fortnite/Valorant-style progression screens (dark UI panels, bold typography, high-contrast accents), using a distinct color palette that is not blue/purple, and use it consistently across all screens.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-generated-images-as-static-assets-in-frontend-public-assets-generated-and-render-them-in-the-ui-where-appropriate-background-chest-trophy-badge-pixel-heart",
+      "title": "Add required generated images as static assets in frontend/public/assets/generated and render them in the UI where appropriate (background, chest, trophy/badge, pixel heart).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Implement Screen 1 Boot/Loading screen with player detection text and Press Start button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement Screen 2 Lobby screen with player info, teammate request notification, and Start Match button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement Level 1 Origin Story Mission with pop-up/mini-animated story loot unlocks and mission complete reward",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement Mini Game 1 'Defuse the Bad Day' with multiple-choice interaction and correct-choice win state",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement Level 2 Memory Arena with multiple memories unlocking as rewards and 'Memory Unlocked' presentation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Implement Mini Game 2 'Fortnite Loot Drop' chest open interaction and loot reveal",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement Level 3 'Reasons I Like You' list with Relationship XP increased reward UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement Level 4 Support Mission with appreciation moments and 'We survived together' result screen",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement Mini Game 3 'FIFA Penalty Shootout' multiple-choice question with correct-answer goal outcome",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement Final Level Proposal flow with DUO MODE REQUEST and Yes/Try Again buttons (Try Again makes Yes grow)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement Ending/Achievement screen after Yes with rewards list and final line",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add optional polish: game sounds, XP/achievement popups, pixel hearts animations, inside-jokes popups, fake loading screens",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Valentine game-like website with progression screens, mini-games, and proposal ending",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

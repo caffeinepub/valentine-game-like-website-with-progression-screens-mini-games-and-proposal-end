@@ -1,0 +1,114 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T21:20:19.995Z",
+  "summary": "Implements a client-side single-page screen flow with Boot → Lobby → Levels/Mini-games → Proposal → Ending, plus sound toggle, fake loading, and toast popups. However, several text/behavior details do not match the specified acceptance criteria, and required generated image assets/sprite usage are not evidenced in the diff summary. Also adds an empty backend actor and an unrequested footer/link.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Boot screen includes a ▶ PRESS START button (exact).",
+      "reason": "BootScreen renders a button labeled \"PRESS START\" with a Play icon, but does not include the required \"▶\" character in the button text.",
+      "evidence": [
+        "frontend/src/game/screens/BootScreen.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Level 1 completion shows “MISSION COMPLETE” and “Reward unlocked: First Memory”.",
+      "reason": "Level1OriginStory shows finalMessage=\"MISSION COMPLETE\" but no \"Reward unlocked: First Memory\" text is present in the shown implementation.",
+      "evidence": [
+        "frontend/src/game/screens/Level1OriginStory.tsx"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Final Proposal shows the exact “❤️ DUO MODE REQUEST ❤️” moment text.",
+      "reason": "FinalProposal displays the header text \"DUO MODE REQUEST\" without the surrounding hearts as specified.",
+      "evidence": [
+        "frontend/src/game/screens/FinalProposal.tsx"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "TRY AGAIN can be clicked repeatedly to cumulatively grow the YES button until YES is clicked.",
+      "reason": "The TRY AGAIN button is conditionally hidden after 5 clicks (tryAgainCount < 5), preventing repeated clicks indefinitely until YES is clicked.",
+      "evidence": [
+        "frontend/src/game/screens/FinalProposal.tsx"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Ending screen displays “🏆 Achievement Unlocked” (with trophy emoji) and “Valentine Partner 2026”.",
+      "reason": "EndingAchievement renders \"ACHIEVEMENT UNLOCKED\" (no trophy emoji) as the main heading. The required exact string with emoji is not shown.",
+      "evidence": [
+        "frontend/src/game/screens/EndingAchievement.tsx",
+        "frontend/src/game/components/AchievementToast.tsx"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "requirement": "Add all required generated images under frontend/public/assets/generated and visibly use them, including the pixel heart sprite sheet.",
+      "reason": "The UI references some generated image paths (background, loot chest, achievement badge), but the diff summary does not show the required static asset files being added under frontend/public/assets/generated, and PixelHearts uses an emoji-based animation rather than the specified sprite sheet (pixel-hearts-sprites.dim_512x64.png).",
+      "evidence": [
+        "frontend/src/game/GameShell.tsx",
+        "frontend/src/game/components/LootChest.tsx",
+        "frontend/src/game/screens/EndingAchievement.tsx",
+        "frontend/src/game/components/PixelHearts.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added an (empty) backend Motoko actor.",
+      "reason": "The request did not require any backend; progression was required to be client-side without backend calls. Adding backend/main.mo is extra/unrequested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Added a promotional footer/link to caffeine.ai on the ending screen.",
+      "reason": "Not requested in any requirement; Ending screen content was specified and this adds additional copy/link.",
+      "evidence": [
+        "frontend/src/game/screens/EndingAchievement.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/game/GameShell.tsx",
+    "frontend/src/game/audio/SoundProvider.tsx",
+    "frontend/src/game/components/AchievementToast.tsx",
+    "frontend/src/game/components/ChoiceMiniGame.tsx",
+    "frontend/src/game/components/LootChest.tsx",
+    "frontend/src/game/components/PixelHearts.tsx",
+    "frontend/src/game/components/RewardToast.tsx",
+    "frontend/src/game/components/SoundToggle.tsx",
+    "frontend/src/game/components/UnlockSequence.tsx",
+    "frontend/src/game/flow.ts",
+    "frontend/src/game/screens/BootScreen.tsx",
+    "frontend/src/game/screens/EndingAchievement.tsx",
+    "frontend/src/game/screens/FakeLoading.tsx",
+    "frontend/src/game/screens/FinalProposal.tsx",
+    "frontend/src/game/screens/Level1OriginStory.tsx",
+    "frontend/src/game/screens/Level2MemoryArena.tsx",
+    "frontend/src/game/screens/Level3Reasons.tsx",
+    "frontend/src/game/screens/Level4SupportMission.tsx",
+    "frontend/src/game/screens/LobbyScreen.tsx",
+    "frontend/src/game/screens/MiniGame1Defuse.tsx",
+    "frontend/src/game/screens/MiniGame2LootChest.tsx",
+    "frontend/src/game/screens/MiniGame3Penalty.tsx",
+    "frontend/src/game/screens/index.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

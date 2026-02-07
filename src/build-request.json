@@ -1,0 +1,321 @@
+{
+  "kind": "build_request",
+  "title": "Valentine game-like website with progression screens, mini-games, and proposal ending",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page, game-like website experience that follows the provided screen/level flow in order, with clear navigation/state transitions (Boot Screen → Lobby → Level 1 → Mini Game 1 → Level 2 → Mini Game 2 → Level 3 → Level 4 → Mini Game 3 → Final Proposal → Ending/Achievement).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-2"
+        ],
+        "quotes": [
+          "VALENTINE GAME WEBSITE — FULL CONCEPT",
+          "create the website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On first load, the user starts at the Boot Screen and can progress through every screen/level in the specified order.",
+        "Each screen has a primary action that advances the experience (e.g., PRESS START, START MATCH, etc.).",
+        "Progression state is handled client-side without requiring any backend calls."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement Screen 1 (Game Boot Screen) with the exact loading-style text blocks and a ▶ PRESS START button to proceed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "SCREEN 1 — GAME BOOT SCREEN",
+          "Loading Valentine Event...\nConnecting to memory servers...\nChecking player data...\n\nPlayer detected:\nAwwds the white death\n\nEvent ready.\n\nButton:\n▶ PRESS START"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Boot screen displays the provided lines of text including the player name “Awwds the white death”.",
+        "Pressing ▶ PRESS START transitions to the Lobby screen."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement Screen 2 (Game Lobby) showing Player/Mode/Status, a teammate request notification pop, and a ▶ START MATCH button to proceed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "SCREEN 2 — GAME LOBBY",
+          "Player: Awwds the white death\nMode: Solo\nStatus: Online",
+          "\"New teammate request pending...\"",
+          "Button:\n▶ START MATCH"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Lobby shows player name, mode=Solo, status=Online.",
+        "A notification element appears with text “New teammate request pending...”.",
+        "Pressing ▶ START MATCH transitions to Level 1."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement Level 1 (Origin Story Mission) as a mission intro plus the listed story beats presented as pop-ups/mini-animations (\"story loot\" unlocks), ending with a mission complete and reward unlocked message.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "LEVEL 1 — ORIGIN STORY MISSION",
+          "Present each bullet point as a pop-up or mini animation — like “story loot” he unlocks.",
+          "MISSION COMPLETE\nReward unlocked: First Memory"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Level 1 displays mission title “MISSION: HOW IT ALL STARTED”.",
+        "Each provided bullet point is revealed as an unlock-style pop-up/card in sequence (user-driven via Next/Continue, or timed).",
+        "Completing the sequence shows “MISSION COMPLETE” and “Reward unlocked: First Memory” and provides a control to continue to Mini Game 1."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement Mini Game 1 “Defuse the Bad Day” as a multiple-choice interaction with the given scenario and choices, where selecting “Call or Cuddle” results in a win state and other choices result in a clear non-win state and allow retry.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "MINI GAME 1 — DEFUSE THE BAD DAY",
+          "Choices appear:\n\n• Send memes\n• Call or Cuddle\n• Order food\n• Ignore\n\nThe correct answer is- Call or cuddle",
+          "Result:\nROUND WON — TEAM SURVIVED"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The mini game shows the scenario text and all four choices.",
+        "Choosing “Call or Cuddle” shows a success result with “ROUND WON — TEAM SURVIVED” and a button to continue to Level 2.",
+        "Choosing any other option shows a failure/incorrect state and offers a retry without breaking the flow."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement Level 2 (Memory Arena) where the provided memories unlock like rewards, each presented with a “❤️ Memory Unlocked” treatment, and then allow continuing to Mini Game 2.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "LEVEL 2 — MEMORY ARENA",
+          "Memories unlock like rewards:\n\n• Our GMeet movie nights\n• Our First date with jenga and our lake hangout\n• Joshi laying on your shoulder \n• Late night calls where there will be more roasting than flirting \n\nEach memory pops with:\n❤️ Memory Unlocked"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All listed memories appear as distinct unlock events/cards.",
+        "Each memory reveal includes the text “❤️ Memory Unlocked”.",
+        "User can proceed to Mini Game 2 after the unlock sequence completes."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement Mini Game 2 “Fortnite Loot Drop” with a chest drop/open interaction; on click, the chest opens and reveals loot including “1 Million kissies”, then allow continuing to Level 3.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "MINI GAME 2 — FORTNITE LOOT DROP",
+          "Chest drops.\n\nHe clicks to open.\n\nLoot examples:\n1 Million kissies"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A chest (or chest-like UI) appears and is clickable to open.",
+        "On open, loot is revealed including “1 Million kissies”.",
+        "After reveal, the user can continue to Level 3."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement Level 3 “Reasons I Like You” showing the provided reasons in a fun, game-like list presentation and a reward UI reading “Relationship XP Increased”, then allow continuing to Level 4.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "LEVEL 3 — REASONS I LIKE YOU",
+          "Reward:\nRelationship XP Increased"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All provided reasons are displayed clearly.",
+        "A reward moment appears with text “Relationship XP Increased”.",
+        "A continue control transitions to Level 4."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement Level 4 “Support Mission” with the provided appreciation moments and a result screen/message “WE SURVIVED TOGETHER”, then allow continuing to Mini Game 3.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "LEVEL 4 — SUPPORT MISSION",
+          "Short appreciation moments:",
+          "Result:\nWE SURVIVED TOGETHER"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Level 4 displays the appreciation moments as distinct beats/cards.",
+        "Completing the sequence shows “WE SURVIVED TOGETHER”.",
+        "User can proceed to Mini Game 3."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement Mini Game 3 “FIFA Penalty Shootout” as a multiple-choice question where selecting “Efforts and showing up” produces a GOAL/success state and other choices produce a non-win state with retry, then allow continuing to the Final Proposal level.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "MINI GAME 3 — FIFA PENALTY SHOOTOUT",
+          "Question:\n\"What always wins her heart?\"",
+          "Choices appear:\n\n• Send memes and nudes\n• Efforts and showing up\n• Ice cream and waffles \n• Ignore\n\nThe correct answer is efforts and showing up \nCorrect answer → GOAL!\n\nResult:\nGOAL SCORED IN JOSHI'S HEART"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The mini game displays the question and all four choices.",
+        "Selecting “Efforts and showing up” shows “GOAL!” and “GOAL SCORED IN JOSHI'S HEART” and a continue control.",
+        "Other selections show an incorrect/non-goal state and provide retry."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement the Final Level Proposal flow: show mission completion for solo mode, then present “❤️ DUO MODE REQUEST ❤️”, display the provided romantic message and the question “💘 Will you be my Valentine?”, with buttons YES ❤️ and TRY AGAIN 😄; clicking TRY AGAIN repeatedly makes the YES button grow progressively larger until clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "🏆 FINAL LEVEL — PROPOSAL",
+          "MISSION COMPLETE\nSolo mode finished.\n\nPause…\n\nNew mode?\n\nThen:\n\n❤️ DUO MODE REQUEST ❤️",
+          "\"It's so much fun playing the game of life with you.\"",
+          "💘 Will you be my Valentine?\n\nButtons:\nYES ❤️\nTRY AGAIN 😄\n\n(If he clicks on try again, make the yes option become bigger and bigger)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Final level shows the “DUO MODE REQUEST” moment and the exact question text.",
+        "Two buttons are shown: “YES ❤️” and “TRY AGAIN 😄”.",
+        "Each click on “TRY AGAIN 😄” increases the size (or visual prominence) of the “YES ❤️” button; the effect is cumulative.",
+        "Clicking “YES ❤️” transitions to the Ending/Achievement screen."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement the Ending/Achievement screen shown after YES with the provided achievement title, rewards list, and final line.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "🎁 ENDING SCREEN — ACHIEVEMENT",
+          "🏆 Achievement Unlocked\nValentine Partner 2026",
+          "Rewards:\n• Unlimited kissies and cuddles\n• My yap dustbin \n• Cute pictures and gifts",
+          "\"Best matches are played with great teamwork.\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Ending screen displays “🏆 Achievement Unlocked” and “Valentine Partner 2026”.",
+        "All three rewards are shown as a list.",
+        "Final line “Best matches are played with great teamwork.” is displayed."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Add optional polish elements mentioned in the concept: game-like sound effects (toggleable), XP/achievement popups, pixel hearts animation moments, inside-jokes-style popups, and at least one fake loading screen transition between major sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Small touches:\nAlso include mini interactive games in between  \n\nGame sounds\nXP popups\nAchievement sounds\nPixel hearts animation\nInside jokes popups\nFake loading screens"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a simple sound on/off toggle in the UI (default can be on).",
+        "At least one XP popup moment and one achievement-style popup moment occur during the flow.",
+        "Pixel-heart visual animation appears at least once (e.g., on proposal YES or memory unlock).",
+        "At least one fake loading screen transition is used between major screens/levels."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Establish and apply a coherent visual theme inspired by Fortnite/Valorant-style progression screens (dark UI panels, bold typography, high-contrast accents), using a distinct color palette that is not blue/purple, and use it consistently across all screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Game UI style: Fortnite / Valorant style progression screens."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All screens share consistent layout patterns (header/mission card/panel, primary action button, reward/toast styling).",
+        "Palette avoids blue and purple hues as the primary accents (use an alternative like black/charcoal + neon green/orange/red).",
+        "Typography and spacing feel like a game event UI (clear hierarchy, bold headings, readable body)."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add required generated images as static assets in frontend/public/assets/generated and render them in the UI where appropriate (background, chest, trophy/badge, pixel heart).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create the website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All listed generated images are present under frontend/public/assets/generated.",
+        "UI loads these assets directly from the frontend (no backend image serving).",
+        "Assets are visibly used (event background, loot chest, achievement badge/trophy, pixel heart animation/sprite)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing text.",
+    "Do not edit files under frontend/src/components/ui or the immutable hook/bootstrapping paths listed in SYSTEM_CONTEXT; compose them instead.",
+    "Keep backend as a single Motoko actor if any backend code is added; do not introduce additional backend services."
+  ],
+  "nonGoals": [
+    "Multiplayer/real-time gameplay or chat.",
+    "External authentication providers beyond Internet Identity.",
+    "Persisting progress across devices/accounts unless explicitly requested later.",
+    "Payments, messaging, push notifications, or third-party integrations."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Game event background illustration, dark arena-style with neon green/orange accents (valentine-event-bg.dim_1920x1080.png)",
+      "Loot chest illustration, stylized game chest with subtle heart motif (loot-chest.dim_512x512.png)",
+      "Achievement badge/trophy icon, game-rank style with heart detail (valentine-achievement-badge.dim_512x512.png)",
+      "Pixel heart sprite sheet, 8-frame animation on transparent background (pixel-hearts-sprites.dim_512x64.png)"
+    ],
+    "edits": []
+  }
+}
