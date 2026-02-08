@@ -1,87 +1,53 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update Level 4, Mini Game 3, Proposal pacing, and Achievement ending copy + badge asset",
+  "title": "Ronaldo goal-kick visuals for Cute Football mini-game",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Make Level 4 (Support Mission) headings and copy match the provided script verbatim, including level label, tagline, appreciation moments, and result text.",
+      "summary": "Add Ronaldo kick/celebration/miss static images and update MiniGameCuteFootball to render them across idle/aiming, kick, and result states.",
       "acceptanceCriteria": [
-        "Level 4 screen displays the provided tagline, appreciation moments, and result text verbatim (including capitalization/punctuation).",
-        "Level 4 heading includes the level indicator and \"SUPPORT MISSION\" as specified by the user."
+        "New images are added as static assets under frontend/public/assets/generated using the filenames specified in this build request.",
+        "MiniGameCuteFootball renders a Ronaldo-kicking visual scene (player + goalpost) in place of or alongside the current ball/goal visuals.",
+        "When the player clicks \"Kick!\", the on-screen visuals clearly reflect a kick moment (e.g., player pose changes and/or ball movement) using the added images.",
+        "When the result is a goal, the on-screen visuals clearly reflect a successful shot into the goal (e.g., goal/celebration variant).",
+        "When the result is a miss, the on-screen visuals clearly reflect a miss (e.g., miss variant) without breaking existing game flow (attempts, goals, next kick, game over)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/game/screens/Level4SupportMission.tsx",
-          "operation": "modify",
-          "description": "Update the Level 4 title to include the full level label (\"🔴 LEVEL 4 — SUPPORT MISSION\"), set the tagline to exactly \"During difficult matches, teammates stay.\", and replace the two appreciation moment strings to match the script verbatim (including the lowercase \"i\" and \"falling part\"). Ensure the UnlockSequence finalMessage remains exactly \"WE SURVIVED TOGETHER\" and remove any unrelated content from this screen so it matches only the Level 4 script. Uses shadcn-ui Card styling already present; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Update Mini Game 3 (Penalty Shootout) prompt/question/choices to match the script exactly and ensure only the intended correct choice yields the success state and text.",
-      "acceptanceCriteria": [
-        "Mini Game 3 displays the four choices with the same text as provided.",
-        "Selecting \"Efforts and showing up\" shows the success title \"GOAL!\" and success subtext \"GOAL SCORED IN JOSHI'S HEART\".",
-        "Selecting any other option triggers the mini-game failure flow (no false positives)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/MiniGame3Penalty.tsx",
-          "operation": "modify",
-          "description": "Change the header prompt text to exactly \"FINAL CHANCE TO SCORE\" (no extra symbols), ensure the question reads exactly \"What always wins her heart?\", and ensure the four choices match the provided wording exactly and in order, with \"Efforts and showing up\" as the only correct answer (correctIndex remains aligned). Keep successTitle \"GOAL!\" and successSubtext \"GOAL SCORED IN JOSHI'S HEART\" verbatim. Uses shadcn-ui Card and the existing ChoiceMiniGame component; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Adjust the Final Proposal sequence to include the scripted pause beats before revealing the DUO MODE REQUEST content.",
-      "acceptanceCriteria": [
-        "The proposal flow shows the \"Pause…\" and \"New mode?\" beat before the DUO MODE REQUEST content appears.",
-        "The DUO MODE REQUEST title and main message appear verbatim as provided."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/FinalProposal.tsx",
-          "operation": "modify",
-          "description": "Refactor the proposal flow state so it displays \"MISSION COMPLETE\" and \"Solo mode finished.\", then shows the additional beat text \"Pause…\" followed by \"New mode?\" (with pacing via timed transitions and/or an explicit continue), and only then reveals the \"DUO MODE REQUEST\" title and the main message \"This game (of life) has been a lot more fun with you in it.\" verbatim. Keep existing YES interaction and advancement behavior intact. Uses shadcn-ui Card/Button already present; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Ensure the Ending/Achievement screen copy matches the provided script after YES: title, achievement name, rewards list text, and final quote.",
-      "acceptanceCriteria": [
-        "Ending screen title reads \"ACHIEVEMENT UNLOCKED\" and includes \"Valentine Partner 2026\".",
-        "Rewards list contains exactly 3 items with the same text as provided.",
-        "The quote \"Best matches are played with great teamwork.\" is displayed verbatim on the ending screen."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/EndingAchievement.tsx",
-          "operation": "modify",
-          "description": "Verify and adjust the Ending/Achievement screen strings so they match the script verbatim: title \"ACHIEVEMENT UNLOCKED\", achievement name \"Valentine Partner 2026\", exactly three rewards (same wording and order as provided), and the final quoted line \"Best matches are played with great teamwork.\" (including punctuation). Keep the screen as the post-YES destination only (no new navigation). Uses shadcn-ui Card styling already present; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Add the generated achievement badge PNG as a static asset and render it on the Ending/Achievement screen.",
-      "acceptanceCriteria": [
-        "A 512x512 PNG badge image exists at frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png.",
-        "Ending/Achievement screen displays the badge image without requesting it from the backend (served as a static asset)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png",
+          "path": "frontend/public/assets/generated/ronaldo-kick.dim_768x768.png",
           "operation": "create",
-          "description": "Add the generated 512x512 PNG achievement badge asset at frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png so it is served as a static frontend file."
+          "description": "Add the required static image asset: ronaldo-kick.dim_768x768.png."
         },
         {
-          "path": "frontend/src/game/screens/EndingAchievement.tsx",
+          "path": "frontend/public/assets/generated/goalpost.dim_768x512.png",
+          "operation": "create",
+          "description": "Add the required static image asset: goalpost.dim_768x512.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/football-motion.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the required static image asset: football-motion.dim_512x512.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/ronaldo-celebrate.dim_768x768.png",
+          "operation": "create",
+          "description": "Add the required static image asset: ronaldo-celebrate.dim_768x768.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/ronaldo-miss.dim_768x768.png",
+          "operation": "create",
+          "description": "Add the required static image asset: ronaldo-miss.dim_768x768.png."
+        },
+        {
+          "path": "frontend/src/game/screens/MiniGameCuteFootball.tsx",
           "operation": "modify",
-          "description": "Ensure the Ending/Achievement screen renders the badge image from the static asset path frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png (no backend fetch), and that its placement remains consistent with the achievement header. Verify the component's usage instructions before implementing."
+          "description": "Replace the current goal/ball visuals with a Ronaldo + goalpost scene using the new static assets at frontend/public/assets/generated/ronaldo-kick.dim_768x768.png, frontend/public/assets/generated/goalpost.dim_768x512.png, and frontend/public/assets/generated/football-motion.dim_512x512.png; update rendering logic so idle/aiming shows Ronaldo readying the kick, clicking \"Kick!\" shows a kick moment (pose change and/or ball flight animation), and goal/miss result states swap to frontend/public/assets/generated/ronaldo-celebrate.dim_768x768.png or frontend/public/assets/generated/ronaldo-miss.dim_768x768.png while preserving existing attempts/goals/next kick/game over flow."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/adjust minimal global keyframes/utilities (e.g., a small ball-flight animation class) used by MiniGameCuteFootball to visually convey kick + goal/miss outcomes with the new static images, without altering game rules or editing frontend/src/components/ui."
         }
       ]
     }

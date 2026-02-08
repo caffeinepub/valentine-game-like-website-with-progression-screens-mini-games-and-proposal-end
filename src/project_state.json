@@ -1,25 +1,17 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Project is a game-themed, level-based interactive proposal/Valentine experience script featuring story levels, mini-games (e.g., FIFA penalty shootout), and an ending achievement screen.",
+  "summary": "Football game project with added visual assets request.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Achievement badge illustration with trophy + heart + game/valentine motif, neon arcade style (valentine-achievement-badge.dim_512x512.png, 512x512)",
+  "imageRequirements": "## Required Images\n- Stylized illustration of Cristiano Ronaldo mid-kick (ronaldo-kick.dim_768x768.png)\n- Stylized illustration of a football goalpost/net (goalpost.dim_768x512.png)\n- Stylized illustration of a football in motion with motion blur/trail (football-motion.dim_512x512.png)\n- Stylized illustration of Cristiano Ronaldo celebrating after scoring (ronaldo-celebrate.dim_768x768.png)\n- Stylized illustration of Cristiano Ronaldo reacting to a miss (ronaldo-miss.dim_768x768.png)",
   "existing_features": [
     {
-      "id": "feature-update-the-level-4-screen-copy-and-headings-to-match-the-provided-script-exactly-including-the-level-label-the-tagline-during-difficult-matches-teammates-stay-the-two-appreciation-moments-and-the-result-text-we-survived-together",
-      "title": "Update the Level 4 screen copy and headings to match the provided script exactly, including: the level label, the tagline \"During difficult matches, teammates stay.\", the two appreciation moments, and the result text \"WE SURVIVED TOGETHER\".",
+      "id": "feature-add-new-static-images-to-the-cute-football-mini-game-to-depict-cristiano-ronaldo-kicking-a-ball-into-a-goalpost-and-update-the-mini-game-ui-to-display-these-images-during-gameplay-idle-aiming-kick-action-and-goal-miss-result-states",
+      "title": "Add new static images to the Cute Football mini-game to depict Cristiano Ronaldo kicking a ball into a goalpost, and update the mini-game UI to display these images during gameplay (idle/aiming, kick action, and goal/miss result states).",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-adjust-the-final-proposal-sequence-to-include-the-scripted-pacing-and-messaging-show-mission-complete-and-solo-mode-finished-then-present-the-additional-pause-beat-text-pause-and-new-mode-before-revealing-the-duo-mode-request-message-this-game-of-life-has-been-a-lot-more-fun-with-you-in-it",
-      "title": "Adjust the Final Proposal sequence to include the scripted pacing and messaging: show \"MISSION COMPLETE\" and \"Solo mode finished.\", then present the additional pause beat text (\"Pause…\" and \"New mode?\") before revealing the \"DUO MODE REQUEST\" message \"This game (of life) has been a lot more fun with you in it.\".",
-      "reqIds": [
-        "REQ-3"
       ],
       "version": 1
     }
@@ -27,37 +19,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Create a game-like proposal/Valentine sequence with levels (Support Mission), a FIFA penalty shootout mini-game with multiple-choice question, and a final proposal/achievement ending screen.",
+      "summary": "Add pictures/images to the football game showing Ronaldo kicking goals into the goalpost",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Update the Mini Game 3 (FIFA Penalty Shootout) screen to match the provided script exactly: show the \"FINAL CHANCE TO SCORE\" prompt, ask \"What always wins her heart?\", display the four provided choices in the same wording, and make \"Efforts and showing up\" the only correct answer that triggers success state text \"GOAL!\" and \"GOAL SCORED IN JOSHI'S HEART\".",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Ensure the Ending/Achievement screen matches the provided script after the user accepts (YES): display \"Achievement Unlocked\" with title \"Valentine Partner 2026\", show the three rewards with the exact wording provided, and render the final line \"Best matches are played with great teamwork.\".",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Add a generated achievement badge image asset and render it on the Ending/Achievement screen as a static frontend asset under frontend/public/assets/generated.",
-      "reqIds": [
-        "REQ-5"
-      ],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Add Level 4 Support Mission script, Mini Game 3 Penalty Shootout copy, and final proposal/achievement text",
+  "projectName": "football game",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

@@ -1,109 +1,45 @@
 {
   "kind": "build_request",
-  "title": "Add Level 4 Support Mission script, Mini Game 3 Penalty Shootout copy, and final proposal/achievement text",
+  "title": "Add Ronaldo goal-kick pictures to the Cute Football mini-game",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the Level 4 screen copy and headings to match the provided script exactly, including: the level label, the tagline \"During difficult matches, teammates stay.\", the two appreciation moments, and the result text \"WE SURVIVED TOGETHER\".",
+      "text": "Add new static images to the Cute Football mini-game to depict Cristiano Ronaldo kicking a ball into a goalpost, and update the mini-game UI to display these images during gameplay (idle/aiming, kick action, and goal/miss result states).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "# 🔴 LEVEL 4 — SUPPORT MISSION\n\nMessage:\n\n\"During difficult matches, teammates stay.\"\n\nShort appreciation moments:\n• Times when i thought everything was falling part, you stood by me, supporting me and comforting me\n• You stayed, listened and made things easier \n\n\nResult:\nWE SURVIVED TOGETHER"
+          "can you add pictures in the football game, where ronaldo is kicking the goals into the goalpost"
         ]
       },
       "acceptanceCriteria": [
-        "Level 4 screen displays the provided tagline, appreciation moments, and result text verbatim (including capitalization/punctuation).",
-        "Level 4 heading includes the level indicator and \"SUPPORT MISSION\" as specified by the user."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Update the Mini Game 3 (FIFA Penalty Shootout) screen to match the provided script exactly: show the \"FINAL CHANCE TO SCORE\" prompt, ask \"What always wins her heart?\", display the four provided choices in the same wording, and make \"Efforts and showing up\" the only correct answer that triggers success state text \"GOAL!\" and \"GOAL SCORED IN JOSHI'S HEART\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "# 🎮 MINI GAME 3 — FIFA PENALTY SHOOTOUT\n\nMessage:\n\nFINAL CHANCE TO SCORE\n\nQuestion:\n\"What always wins her heart?\"\n\nChoices appear:\n\n• Send memes and nudes\n• Efforts and showing up\n• Ice cream and waffles \n• Ignore\n\nThe correct answer is efforts and showing up \nCorrect answer → GOAL!\n\nResult:\nGOAL SCORED IN JOSHI'S HEART"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Mini Game 3 displays the four choices with the same text as provided.",
-        "Selecting \"Efforts and showing up\" shows the success title \"GOAL!\" and success subtext \"GOAL SCORED IN JOSHI'S HEART\".",
-        "Selecting any other option triggers the mini-game failure flow (no false positives)."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Adjust the Final Proposal sequence to include the scripted pacing and messaging: show \"MISSION COMPLETE\" and \"Solo mode finished.\", then present the additional pause beat text (\"Pause…\" and \"New mode?\") before revealing the \"DUO MODE REQUEST\" message \"This game (of life) has been a lot more fun with you in it.\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "# 🏆 FINAL LEVEL — PROPOSAL\n\nScreen:\n\nMISSION COMPLETE\nSolo mode finished.\n\nPause…\n\nNew mode?\n\nThen:\n\n\n❤️ DUO MODE REQUEST ❤️\n\nMain message:\n\n\"This game (of life) has been a lot more fun with you in it.\""
-        ]
-      },
-      "acceptanceCriteria": [
-        "The proposal flow shows the \"Pause…\" and \"New mode?\" beat before the DUO MODE REQUEST content appears.",
-        "The DUO MODE REQUEST title and main message appear verbatim as provided."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Ensure the Ending/Achievement screen matches the provided script after the user accepts (YES): display \"Achievement Unlocked\" with title \"Valentine Partner 2026\", show the three rewards with the exact wording provided, and render the final line \"Best matches are played with great teamwork.\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "# 🎁 ENDING SCREEN — ACHIEVEMENT\n\nAfter YES:\n\n🏆 Achievement Unlocked\nValentine Partner 2026\n\nRewards:\n• Unlimited kissies and cuddles\n• Get to be my yap dustbin \n• Cute pictures and gifts \n\nFinal line:\n\"Best matches are played with great teamwork.\""
-        ]
-      },
-      "acceptanceCriteria": [
-        "Ending screen title reads \"ACHIEVEMENT UNLOCKED\" and includes \"Valentine Partner 2026\".",
-        "Rewards list contains exactly 3 items with the same text as provided.",
-        "The quote \"Best matches are played with great teamwork.\" is displayed verbatim on the ending screen."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Add a generated achievement badge image asset and render it on the Ending/Achievement screen as a static frontend asset under frontend/public/assets/generated.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "# 🎁 ENDING SCREEN — ACHIEVEMENT\n\n🏆 Achievement Unlocked\nValentine Partner 2026"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A 512x512 PNG badge image exists at frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png.",
-        "Ending/Achievement screen displays the badge image without requesting it from the backend (served as a static asset)."
+        "New images are added as static assets under frontend/public/assets/generated using the filenames specified in this build request.",
+        "MiniGameCuteFootball renders a Ronaldo-kicking visual scene (player + goalpost) in place of or alongside the current ball/goal visuals.",
+        "When the player clicks \"Kick!\", the on-screen visuals clearly reflect a kick moment (e.g., player pose changes and/or ball movement) using the added images.",
+        "When the result is a goal, the on-screen visuals clearly reflect a successful shot into the goal (e.g., goal/celebration variant).",
+        "When the result is a miss, the on-screen visuals clearly reflect a miss (e.g., miss variant) without breaking existing game flow (attempts, goals, next kick, game over)."
       ]
     }
   ],
   "constraints": [
-    "Use English for any user-facing text.",
-    "Do not edit files under frontend/src/components/ui or any other frontend immutablePaths.",
-    "Keep the backend as a single Motoko actor; no new backend features are required for this request."
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not edit frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/hooks/useActor.ts, frontend/src/main.tsx (immutable paths).",
+    "Keep all changes within the existing single-frontend app; no new backend logic is required for static images."
   ],
   "nonGoals": [
-    "Add new mini-games beyond the described Mini Game 3.",
-    "Add third-party authentication or external APIs.",
-    "Persist gameplay progress in the backend."
+    "Do not change game rules, difficulty tuning constants, or win/lose conditions beyond what is necessary to render the new images.",
+    "Do not add backend storage or fetching of images; images must be served as static assets."
   ],
   "imageRequirements": {
     "required": [
-      "Achievement badge illustration with trophy + heart + game/valentine motif, neon arcade style (valentine-achievement-badge.dim_512x512.png, 512x512)"
+      "Stylized illustration of Cristiano Ronaldo mid-kick (ronaldo-kick.dim_768x768.png)",
+      "Stylized illustration of a football goalpost/net (goalpost.dim_768x512.png)",
+      "Stylized illustration of a football in motion with motion blur/trail (football-motion.dim_512x512.png)",
+      "Stylized illustration of Cristiano Ronaldo celebrating after scoring (ronaldo-celebrate.dim_768x768.png)",
+      "Stylized illustration of Cristiano Ronaldo reacting to a miss (ronaldo-miss.dim_768x768.png)"
     ],
     "edits": []
   }

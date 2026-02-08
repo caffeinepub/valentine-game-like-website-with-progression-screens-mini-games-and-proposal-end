@@ -132,6 +132,21 @@
     .heart-beat {
         animation: heart-beat 1s ease-in-out infinite;
     }
+
+    @keyframes ball-flight {
+        0% {
+            transform: translate(-50%, 0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -180px) scale(0.5);
+            opacity: 0.8;
+        }
+    }
+
+    .ball-flight {
+        animation: ball-flight 0.8s ease-out forwards;
+    }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');

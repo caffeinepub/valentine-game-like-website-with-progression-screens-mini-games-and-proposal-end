@@ -7,8 +7,10 @@ import { LobbyScreen } from './game/screens/LobbyScreen';
 import { Level1OriginStory } from './game/screens/Level1OriginStory';
 import { MiniGame1Defuse } from './game/screens/MiniGame1Defuse';
 import { Level2MemoryArena } from './game/screens/Level2MemoryArena';
+import { MiniGameHeartCollector } from './game/screens/MiniGameHeartCollector';
 import { MiniGame2LootChest } from './game/screens/MiniGame2LootChest';
 import { Level3Reasons } from './game/screens/Level3Reasons';
+import { MiniGameCuteFootball } from './game/screens/MiniGameCuteFootball';
 import { Level4SupportMission } from './game/screens/Level4SupportMission';
 import { MiniGame3Penalty } from './game/screens/MiniGame3Penalty';
 import { FinalProposal } from './game/screens/FinalProposal';
@@ -47,11 +49,15 @@ function App() {
       case 'minigame1':
         return <MiniGame1Defuse onAdvance={() => handleAdvance('level2', true)} />;
       case 'level2':
-        return <Level2MemoryArena onAdvance={() => handleAdvance('minigame2')} />;
+        return <Level2MemoryArena onAdvance={() => handleAdvance('minigameHeartCollector')} />;
+      case 'minigameHeartCollector':
+        return <MiniGameHeartCollector onAdvance={() => handleAdvance('minigame2', true)} />;
       case 'minigame2':
         return <MiniGame2LootChest onAdvance={() => handleAdvance('level3')} />;
       case 'level3':
-        return <Level3Reasons onAdvance={() => handleAdvance('level4', true)} />;
+        return <Level3Reasons onAdvance={() => handleAdvance('minigameFootball', true)} />;
+      case 'minigameFootball':
+        return <MiniGameCuteFootball onAdvance={() => handleAdvance('level4', true)} />;
       case 'level4':
         return <Level4SupportMission onAdvance={() => handleAdvance('minigame3')} />;
       case 'minigame3':

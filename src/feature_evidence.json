@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-level-4-screen-copy-and-headings-to-match-the-provided-script-exactly-including-the-level-label-the-tagline-during-difficult-matches-teammates-stay-the-two-appreciation-moments-and-the-result-text-we-survived-together",
-      "featureTitle": "Update the Level 4 screen copy and headings to match the provided script exactly, including: the level label, the tagline \"During difficult matches, teammates stay.\", the two appreciation moments, and the result text \"WE SURVIVED TOGETHER\".",
+      "featureId": "feature-add-new-static-images-to-the-cute-football-mini-game-to-depict-cristiano-ronaldo-kicking-a-ball-into-a-goalpost-and-update-the-mini-game-ui-to-display-these-images-during-gameplay-idle-aiming-kick-action-and-goal-miss-result-states",
+      "featureTitle": "Add new static images to the Cute Football mini-game to depict Cristiano Ronaldo kicking a ball into a goalpost, and update the mini-game UI to display these images during gameplay (idle/aiming, kick action, and goal/miss result states).",
       "files": [
-        "frontend/src/game/screens/Level4SupportMission.tsx"
+        "frontend/src/game/screens/MiniGameCuteFootball.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,24 +17,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-adjust-the-final-proposal-sequence-to-include-the-scripted-pacing-and-messaging-show-mission-complete-and-solo-mode-finished-then-present-the-additional-pause-beat-text-pause-and-new-mode-before-revealing-the-duo-mode-request-message-this-game-of-life-has-been-a-lot-more-fun-with-you-in-it",
-      "featureTitle": "Adjust the Final Proposal sequence to include the scripted pacing and messaging: show \"MISSION COMPLETE\" and \"Solo mode finished.\", then present the additional pause beat text (\"Pause…\" and \"New mode?\") before revealing the \"DUO MODE REQUEST\" message \"This game (of life) has been a lot more fun with you in it.\".",
-      "files": [
-        "frontend/src/game/screens/FinalProposal.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
       ],
       "confidence": "high"
     }
