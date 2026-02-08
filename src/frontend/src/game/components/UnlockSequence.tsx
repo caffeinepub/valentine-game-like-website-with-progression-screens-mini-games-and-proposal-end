@@ -14,9 +14,10 @@ interface UnlockSequenceProps {
   onComplete: () => void;
   finalMessage?: string;
   finalBadge?: string;
+  finalBody?: React.ReactNode;
 }
 
-export function UnlockSequence({ items, onComplete, finalMessage, finalBadge }: UnlockSequenceProps) {
+export function UnlockSequence({ items, onComplete, finalMessage, finalBadge, finalBody }: UnlockSequenceProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showFinal, setShowFinal] = useState(false);
   const { playUnlock, playSuccess } = useSound();
@@ -48,6 +49,11 @@ export function UnlockSequence({ items, onComplete, finalMessage, finalBadge }: 
           <h2 className="text-3xl font-display text-primary neon-glow mb-4">
             {finalMessage}
           </h2>
+          {finalBody && (
+            <div className="mb-6">
+              {finalBody}
+            </div>
+          )}
           <Button
             onClick={handleComplete}
             className="game-button px-8 py-6 text-lg"

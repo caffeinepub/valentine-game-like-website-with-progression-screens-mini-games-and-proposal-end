@@ -7,9 +7,8 @@ interface Level4SupportMissionProps {
 
 export function Level4SupportMission({ onAdvance }: Level4SupportMissionProps) {
   const supportMoments = [
-    { text: 'Times when I thought everything was falling apart, you stood by me, supporting me and comforting me' },
-    { text: 'Supporting me emotionally' },
-    { text: 'Staying during bad days' },
+    { text: 'Times when i thought everything was falling part, you stood by me, supporting me and comforting me' },
+    { text: 'You stayed, listened and made things easier' },
   ];
 
   return (
@@ -17,7 +16,7 @@ export function Level4SupportMission({ onAdvance }: Level4SupportMissionProps) {
       <div className="text-center mb-8">
         <Card className="game-panel p-6 inline-block">
           <h1 className="text-4xl font-display text-primary neon-glow">
-            SUPPORT MISSION
+            🔴 LEVEL 4 — SUPPORT MISSION
           </h1>
           <p className="text-muted-foreground mt-2">
             During difficult matches, teammates stay.

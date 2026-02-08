@@ -1,356 +1,75 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-07T21:20:19.998Z",
+  "generatedAt": "2026-02-08T06:53:03.681Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 15,
-    "implemented": 15,
+    "total": 5,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Create a single-page, game-like website experience that follows the provided screen/level flow in order, with clear navigation/state transitions (Boot Screen → Lobby → Level 1 → Mini Game 1 → Level 2 → Mini Game 2 → Level 3 → Level 4 → Mini Game 3 → Final Proposal → Ending/Achievement).",
+        "summary": "Update the Level 4 screen copy and headings to match the provided script exactly, including: the level label, the tagline \"During difficult matches, teammates stay.\", the two appreciation moments, and the result text \"WE SURVIVED TOGETHER\".",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/game/flow.ts",
-          "frontend/src/game/GameShell.tsx",
-          "frontend/src/game/screens/index.ts"
+          "frontend/src/game/screens/Level4SupportMission.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/game/flow.ts",
-          "frontend/src/game/GameShell.tsx",
-          "frontend/src/game/screens/index.ts"
-        ]
-      },
-      {
-        "id": "REQ-10",
-        "summary": "Implement Mini Game 3 “FIFA Penalty Shootout” as a multiple-choice question where selecting “Efforts and showing up” produces a GOAL/success state and other choices produce a non-win state with retry, then allow continuing to the Final Proposal level.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/screens/MiniGame3Penalty.tsx",
-          "frontend/src/game/components/ChoiceMiniGame.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/screens/MiniGame3Penalty.tsx",
-          "frontend/src/game/components/ChoiceMiniGame.tsx"
-        ]
-      },
-      {
-        "id": "REQ-11",
-        "summary": "Implement the Final Level Proposal flow: show mission completion for solo mode, then present “❤️ DUO MODE REQUEST ❤️”, display the provided romantic message and the question “💘 Will you be my Valentine?”, with buttons YES ❤️ and TRY AGAIN 😄; clicking TRY AGAIN repeatedly makes the YES button grow progressively larger until clicked.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/screens/FinalProposal.tsx",
-          "frontend/src/game/components/PixelHearts.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/screens/FinalProposal.tsx",
-          "frontend/src/game/components/PixelHearts.tsx"
-        ]
-      },
-      {
-        "id": "REQ-12",
-        "summary": "Implement the Ending/Achievement screen shown after YES with the provided achievement title, rewards list, and final line.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/screens/EndingAchievement.tsx",
-          "frontend/src/game/screens/index.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/screens/EndingAchievement.tsx",
-          "frontend/src/game/screens/index.ts"
-        ]
-      },
-      {
-        "id": "REQ-13",
-        "summary": "Add optional polish elements mentioned in the concept: game-like sound effects (toggleable), XP/achievement popups, pixel hearts animation moments, inside-jokes-style popups, and at least one fake loading screen transition between major sections.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/audio/SoundProvider.tsx",
-          "frontend/src/game/components/SoundToggle.tsx",
-          "frontend/src/game/components/AchievementToast.tsx",
-          "frontend/src/game/screens/FakeLoading.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/audio/SoundProvider.tsx",
-          "frontend/src/game/components/SoundToggle.tsx",
-          "frontend/src/game/components/AchievementToast.tsx",
-          "frontend/src/game/screens/FakeLoading.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-14",
-        "summary": "Establish and apply a coherent visual theme inspired by Fortnite/Valorant-style progression screens (dark UI panels, bold typography, high-contrast accents), using a distinct color palette that is not blue/purple, and use it consistently across all screens.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js",
-          "frontend/src/game/GameShell.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js",
-          "frontend/src/game/GameShell.tsx"
-        ]
-      },
-      {
-        "id": "REQ-15",
-        "summary": "Add required generated images as static assets in frontend/public/assets/generated and render them in the UI where appropriate (background, chest, trophy/badge, pixel heart).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/public/assets/generated/valentine-event-bg.dim_1920x1080.png",
-          "frontend/public/assets/generated/loot-chest.dim_512x512.png",
-          "frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png",
-          "frontend/public/assets/generated/pixel-hearts-sprites.dim_512x64.png",
-          "frontend/src/game/GameShell.tsx",
-          "frontend/src/game/screens/MiniGame2LootChest.tsx",
-          "frontend/src/game/screens/EndingAchievement.tsx",
-          "frontend/src/game/components/PixelHearts.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/public/assets/generated/valentine-event-bg.dim_1920x1080.png",
-          "frontend/public/assets/generated/loot-chest.dim_512x512.png",
-          "frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png",
-          "frontend/public/assets/generated/pixel-hearts-sprites.dim_512x64.png",
-          "frontend/src/game/GameShell.tsx",
-          "frontend/src/game/screens/MiniGame2LootChest.tsx",
-          "frontend/src/game/screens/EndingAchievement.tsx",
-          "frontend/src/game/components/PixelHearts.tsx"
+          "frontend/src/game/screens/Level4SupportMission.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Implement Screen 1 (Game Boot Screen) with the exact loading-style text blocks and a ▶ PRESS START button to proceed.",
-        "status": "implemented",
+        "summary": "Update the Mini Game 3 (FIFA Penalty Shootout) screen to match the provided script exactly: show the \"FINAL CHANCE TO SCORE\" prompt, ask \"What always wins her heart?\", display the four provided choices in the same wording, and make \"Efforts and showing up\" the only correct answer that triggers success state text \"GOAL!\" and \"GOAL SCORED IN JOSHI'S HEART\".",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/game/screens/BootScreen.tsx",
-          "frontend/src/App.tsx"
+          "frontend/src/game/screens/MiniGame3Penalty.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/game/screens/BootScreen.tsx",
-          "frontend/src/App.tsx"
-        ]
+        "matchedFiles": []
       },
       {
         "id": "REQ-3",
-        "summary": "Implement Screen 2 (Game Lobby) showing Player/Mode/Status, a teammate request notification pop, and a ▶ START MATCH button to proceed.",
+        "summary": "Adjust the Final Proposal sequence to include the scripted pacing and messaging: show \"MISSION COMPLETE\" and \"Solo mode finished.\", then present the additional pause beat text (\"Pause…\" and \"New mode?\") before revealing the \"DUO MODE REQUEST\" message \"This game (of life) has been a lot more fun with you in it.\".",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/game/screens/LobbyScreen.tsx",
-          "frontend/src/game/screens/index.ts"
+          "frontend/src/game/screens/FinalProposal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/game/screens/LobbyScreen.tsx",
-          "frontend/src/game/screens/index.ts"
+          "frontend/src/game/screens/FinalProposal.tsx"
         ]
       },
       {
         "id": "REQ-4",
-        "summary": "Implement Level 1 (Origin Story Mission) as a mission intro plus the listed story beats presented as pop-ups/mini-animations (\"story loot\" unlocks), ending with a mission complete and reward unlocked message.",
-        "status": "implemented",
+        "summary": "Ensure the Ending/Achievement screen matches the provided script after the user accepts (YES): display \"Achievement Unlocked\" with title \"Valentine Partner 2026\", show the three rewards with the exact wording provided, and render the final line \"Best matches are played with great teamwork.\".",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/game/screens/Level1OriginStory.tsx",
-          "frontend/src/game/components/UnlockSequence.tsx"
+          "frontend/src/game/screens/EndingAchievement.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/game/screens/Level1OriginStory.tsx",
-          "frontend/src/game/components/UnlockSequence.tsx"
-        ]
+        "matchedFiles": []
       },
       {
         "id": "REQ-5",
-        "summary": "Implement Mini Game 1 “Defuse the Bad Day” as a multiple-choice interaction with the given scenario and choices, where selecting “Call or Cuddle” results in a win state and other choices result in a clear non-win state and allow retry.",
-        "status": "implemented",
+        "summary": "Add a generated achievement badge image asset and render it on the Ending/Achievement screen as a static frontend asset under frontend/public/assets/generated.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/game/screens/MiniGame1Defuse.tsx",
-          "frontend/src/game/components/ChoiceMiniGame.tsx"
+          "frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png",
+          "frontend/src/game/screens/EndingAchievement.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/game/screens/MiniGame1Defuse.tsx",
-          "frontend/src/game/components/ChoiceMiniGame.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Implement Level 2 (Memory Arena) where the provided memories unlock like rewards, each presented with a “❤️ Memory Unlocked” treatment, and then allow continuing to Mini Game 2.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/screens/Level2MemoryArena.tsx",
-          "frontend/src/game/components/UnlockSequence.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/screens/Level2MemoryArena.tsx",
-          "frontend/src/game/components/UnlockSequence.tsx"
-        ]
-      },
-      {
-        "id": "REQ-7",
-        "summary": "Implement Mini Game 2 “Fortnite Loot Drop” with a chest drop/open interaction; on click, the chest opens and reveals loot including “1 Million kissies”, then allow continuing to Level 3.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/screens/MiniGame2LootChest.tsx",
-          "frontend/src/game/components/LootChest.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/screens/MiniGame2LootChest.tsx",
-          "frontend/src/game/components/LootChest.tsx"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Implement Level 3 “Reasons I Like You” showing the provided reasons in a fun, game-like list presentation and a reward UI reading “Relationship XP Increased”, then allow continuing to Level 4.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/screens/Level3Reasons.tsx",
-          "frontend/src/game/components/RewardToast.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/screens/Level3Reasons.tsx",
-          "frontend/src/game/components/RewardToast.tsx"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "Implement Level 4 “Support Mission” with the provided appreciation moments and a result screen/message “WE SURVIVED TOGETHER”, then allow continuing to Mini Game 3.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/game/screens/Level4SupportMission.tsx",
-          "frontend/src/game/components/UnlockSequence.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/game/screens/Level4SupportMission.tsx",
-          "frontend/src/game/components/UnlockSequence.tsx"
-        ]
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
     "build-request.json",
-    "build-template/Dockerfile",
-    "build-template/LICENSE",
-    "build-template/README.md",
-    "build-template/deploy.sh",
-    "build-template/icp.yaml",
-    "build-template/package.json",
-    "build-template/pnpm-lock.yaml",
-    "build-template/pnpm-workspace.yaml",
-    "build-template/scripts/prune-unused-images.js",
-    "build-template/scripts/resize-images.js",
-    "build-template/src/backend/canister.yaml",
-    "build-template/src/backend/system-idl/aaaaa-aa.did",
-    "build-template/src/frontend/canister.yaml",
-    "build-template/src/frontend/components.json",
-    "build-template/src/frontend/env.json",
-    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
-    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
-    "build-template/src/frontend/eslint.config.js",
-    "build-template/src/frontend/package.json",
-    "build-template/src/frontend/postcss.config.js",
-    "build-template/src/frontend/src/components/ui/accordion.tsx",
-    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
-    "build-template/src/frontend/src/components/ui/alert.tsx",
-    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
-    "build-template/src/frontend/src/components/ui/avatar.tsx",
-    "build-template/src/frontend/src/components/ui/badge.tsx",
-    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
-    "build-template/src/frontend/src/components/ui/button.tsx",
-    "build-template/src/frontend/src/components/ui/calendar.tsx",
-    "build-template/src/frontend/src/components/ui/card.tsx",
-    "build-template/src/frontend/src/components/ui/carousel.tsx",
-    "build-template/src/frontend/src/components/ui/chart.tsx",
-    "build-template/src/frontend/src/components/ui/checkbox.tsx",
-    "build-template/src/frontend/src/components/ui/collapsible.tsx",
-    "build-template/src/frontend/src/components/ui/command.tsx",
-    "build-template/src/frontend/src/components/ui/context-menu.tsx",
-    "build-template/src/frontend/src/components/ui/dialog.tsx",
-    "build-template/src/frontend/src/components/ui/drawer.tsx",
-    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
-    "build-template/src/frontend/src/components/ui/form.tsx",
-    "build-template/src/frontend/src/components/ui/hover-card.tsx",
-    "build-template/src/frontend/src/components/ui/input-otp.tsx",
-    "build-template/src/frontend/src/components/ui/input.tsx",
-    "build-template/src/frontend/src/components/ui/label.tsx",
-    "build-template/src/frontend/src/components/ui/menubar.tsx",
-    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
-    "build-template/src/frontend/src/components/ui/pagination.tsx",
-    "build-template/src/frontend/src/components/ui/popover.tsx",
-    "build-template/src/frontend/src/components/ui/progress.tsx",
-    "build-template/src/frontend/src/components/ui/radio-group.tsx",
-    "build-template/src/frontend/src/components/ui/resizable.tsx",
-    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
-    "build-template/src/frontend/src/components/ui/select.tsx",
-    "build-template/src/frontend/src/components/ui/separator.tsx",
-    "build-template/src/frontend/src/components/ui/sheet.tsx",
-    "build-template/src/frontend/src/components/ui/sidebar.tsx",
-    "build-template/src/frontend/src/components/ui/skeleton.tsx",
-    "build-template/src/frontend/src/components/ui/slider.tsx",
-    "build-template/src/frontend/src/components/ui/sonner.tsx",
-    "build-template/src/frontend/src/components/ui/switch.tsx",
-    "build-template/src/frontend/src/components/ui/table.tsx",
-    "build-template/src/frontend/src/components/ui/tabs.tsx",
-    "build-template/src/frontend/src/components/ui/textarea.tsx",
-    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
-    "build-template/src/frontend/src/components/ui/toggle.tsx",
-    "build-template/src/frontend/src/components/ui/tooltip.tsx",
-    "build-template/src/frontend/src/hooks/use-mobile.tsx",
-    "build-template/src/frontend/src/lib/utils.ts",
-    "build-template/src/frontend/tsconfig.json",
-    "build-template/src/frontend/vite.config.js",
-    "build-template/tsconfig.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/public/assets/generated/loot-chest.dim_512x512.png",
-    "frontend/public/assets/generated/pixel-hearts-sprites.dim_512x64.png",
-    "frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png",
-    "frontend/public/assets/generated/valentine-event-bg.dim_1920x1080.png",
-    "frontend/src/App.tsx",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/config.ts",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
-    "frontend/src/game/GameShell.tsx",
-    "frontend/src/game/audio/SoundProvider.tsx",
-    "frontend/src/game/components/AchievementToast.tsx",
-    "frontend/src/game/components/ChoiceMiniGame.tsx",
-    "frontend/src/game/components/LootChest.tsx",
-    "frontend/src/game/components/PixelHearts.tsx",
-    "frontend/src/game/components/RewardToast.tsx",
-    "frontend/src/game/components/SoundToggle.tsx",
-    "frontend/src/game/components/UnlockSequence.tsx",
-    "frontend/src/game/flow.ts",
-    "frontend/src/game/screens/BootScreen.tsx",
-    "frontend/src/game/screens/EndingAchievement.tsx",
-    "frontend/src/game/screens/FakeLoading.tsx",
+    "frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png, 512x512",
     "frontend/src/game/screens/FinalProposal.tsx",
-    "frontend/src/game/screens/Level1OriginStory.tsx",
-    "frontend/src/game/screens/Level2MemoryArena.tsx",
-    "frontend/src/game/screens/Level3Reasons.tsx",
     "frontend/src/game/screens/Level4SupportMission.tsx",
-    "frontend/src/game/screens/LobbyScreen.tsx",
-    "frontend/src/game/screens/MiniGame1Defuse.tsx",
-    "frontend/src/game/screens/MiniGame2LootChest.tsx",
-    "frontend/src/game/screens/MiniGame3Penalty.tsx",
-    "frontend/src/game/screens/index.ts",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/ui-summary.json",
-    "frontend/src/utils/StorageClient.ts",
-    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

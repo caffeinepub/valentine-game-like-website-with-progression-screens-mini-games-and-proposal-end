@@ -7,10 +7,10 @@ interface Level2MemoryArenaProps {
 
 export function Level2MemoryArena({ onAdvance }: Level2MemoryArenaProps) {
   const memories = [
-    { text: 'Our GMeet movie nights', badge: '❤️ Memory Unlocked' },
-    { text: 'Our First date with jenga and our lake hangout', badge: '❤️ Memory Unlocked' },
-    { text: 'Joshi laying on your shoulder', badge: '❤️ Memory Unlocked' },
-    { text: 'Late night calls where there will be more roasting than flirting', badge: '❤️ Memory Unlocked' },
+    { text: 'GMeet movie nights', badge: '❤️ Memory Unlocked' },
+    { text: 'First date with jenga and our lake hangout', badge: '❤️ Memory Unlocked' },
+    { text: 'Teammate beside you  and laying on your shoulder ', badge: '❤️ Memory Unlocked' },
+    { text: 'Late night calls that never felt long enough', badge: '❤️ Memory Unlocked' },
   ];
 
   return (

@@ -10,16 +10,20 @@ interface FinalProposalProps {
 }
 
 export function FinalProposal({ onAdvance }: FinalProposalProps) {
-  const [showProposal, setShowProposal] = useState(false);
+  const [step, setStep] = useState<'complete' | 'pause' | 'newMode' | 'proposal'>('complete');
   const [tryAgainCount, setTryAgainCount] = useState(0);
   const [showHearts, setShowHearts] = useState(false);
   const { playClick, playSuccess } = useSound();
 
-  const handleShowProposal = () => {
+  const handleContinue = () => {
     playClick();
-    setTimeout(() => {
-      setShowProposal(true);
-    }, 1000);
+    if (step === 'complete') {
+      setTimeout(() => setStep('pause'), 500);
+    } else if (step === 'pause') {
+      setTimeout(() => setStep('newMode'), 500);
+    } else if (step === 'newMode') {
+      setTimeout(() => setStep('proposal'), 500);
+    }
   };
 
   const handleTryAgain = () => {
@@ -37,7 +41,7 @@ export function FinalProposal({ onAdvance }: FinalProposalProps) {
 
   const yesButtonScale = 1 + (tryAgainCount * 0.15);
 
-  if (!showProposal) {
+  if (step === 'complete') {
     return (
       <div className="w-full max-w-2xl mx-auto space-y-6">
         <Card className="game-panel p-8 text-center slide-up">
@@ -49,7 +53,43 @@ export function FinalProposal({ onAdvance }: FinalProposalProps) {
           </p>
           <div className="text-6xl mb-6">🎮</div>
           <Button
-            onClick={handleShowProposal}
+            onClick={handleContinue}
+            className="game-button px-8 py-6 text-lg"
+          >
+            CONTINUE
+          </Button>
+        </Card>
+      </div>
+    );
+  }
+
+  if (step === 'pause') {
+    return (
+      <div className="w-full max-w-2xl mx-auto space-y-6">
+        <Card className="game-panel p-8 text-center slide-up">
+          <p className="text-2xl text-muted-foreground mb-6">
+            Pause…
+          </p>
+          <Button
+            onClick={handleContinue}
+            className="game-button px-8 py-6 text-lg"
+          >
+            CONTINUE
+          </Button>
+        </Card>
+      </div>
+    );
+  }
+
+  if (step === 'newMode') {
+    return (
+      <div className="w-full max-w-2xl mx-auto space-y-6">
+        <Card className="game-panel p-8 text-center slide-up">
+          <p className="text-2xl text-muted-foreground mb-6">
+            New mode?
+          </p>
+          <Button
+            onClick={handleContinue}
             className="game-button px-8 py-6 text-lg"
           >
             CONTINUE
@@ -70,7 +110,7 @@ export function FinalProposal({ onAdvance }: FinalProposalProps) {
             DUO MODE REQUEST
           </h2>
           <p className="text-xl text-foreground mb-8 leading-relaxed">
-            "It's so much fun playing the game of life with you."
+            This game (of life) has been a lot more fun with you in it.
           </p>
           <div className="text-3xl font-display text-accent mb-8">
             💘 Will you be my Valentine?

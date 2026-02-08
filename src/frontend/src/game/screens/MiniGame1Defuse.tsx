@@ -17,7 +17,7 @@ export function MiniGame1Defuse({ onAdvance }: MiniGame1DefuseProps) {
       </div>
 
       <ChoiceMiniGame
-        scenario="Oh no! Bad day for Joshi has planted."
+        scenario="Oh no! Bad day for the Teammate has planted. Do the right thing to restore her mood"
         choices={[
           'Send memes',
           'Call or Cuddle',

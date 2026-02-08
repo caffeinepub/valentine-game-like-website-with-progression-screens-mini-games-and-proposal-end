@@ -13,14 +13,11 @@ export function BootScreen({ onAdvance }: BootScreenProps) {
   const { playClick } = useSound();
 
   const loadingMessages = [
-    'Loading Valentine Event...',
     'Connecting to memory servers...',
     'Checking player data...',
     '',
     'Player detected:',
     'Awwds the white death',
-    '',
-    'Event ready.',
   ];
 
   useEffect(() => {

@@ -14,14 +14,15 @@ export function Level3Reasons({ onAdvance }: Level3ReasonsProps) {
   const { playSuccess } = useSound();
 
   const reasons = [
-    'We are very similar.',
-    'You understand what I\'m trying to say.',
-    'You try to make my boring days fun.',
-    'You listen to my yap sessions.',
-    'You make me laugh.',
-    'You\'re patient with me when I overthink.',
-    'You\'re cute af.',
-    'You challenge me but support me at the same time.',
+    'How we think the same sometimes.',
+    'How you understand things.',
+    'How you try to make my normal days fun.',
+    'How you listen to my yap sessions.',
+    'How you make me laugh.',
+    'How you\'re patient with me when I overthink.',
+    'How you\'re so cute af.',
+    'How you somehow challenge me but support me at the same time.',
+    'Somehow being annoying together feels nice.',
   ];
 
   const handleContinue = () => {

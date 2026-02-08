@@ -13,7 +13,7 @@ export function EndingAchievement() {
 
   const rewards = [
     'Unlimited kissies and cuddles',
-    'My yap dustbin',
+    'Get to be my yap dustbin',
     'Cute pictures and gifts',
   ];
 
@@ -21,7 +21,7 @@ export function EndingAchievement() {
     <>
       <AchievementToast
         title="Valentine Partner 2026"
-        description="Best matches are played with great teamwork"
+        description="Best matches are played with great teamwork."
         show={showAchievement}
       />
       <PixelHearts count={25} />

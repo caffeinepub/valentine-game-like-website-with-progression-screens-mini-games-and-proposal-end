@@ -1,381 +1,87 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Valentine Progression Mini-Game Single-Page Experience",
+  "title": "Update Level 4, Mini Game 3, Proposal pacing, and Achievement ending copy + badge asset",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Implement a single-page, ordered screen/level flow with client-side progression state and clear transitions.",
+      "summary": "Make Level 4 (Support Mission) headings and copy match the provided script verbatim, including level label, tagline, appreciation moments, and result text.",
       "acceptanceCriteria": [
-        "On first load, the user starts at the Boot Screen and can progress through every screen/level in the specified order.",
-        "Each screen has a primary action that advances the experience (e.g., PRESS START, START MATCH, etc.).",
-        "Progression state is handled client-side without requiring any backend calls."
+        "Level 4 screen displays the provided tagline, appreciation moments, and result text verbatim (including capitalization/punctuation).",
+        "Level 4 heading includes the level indicator and \"SUPPORT MISSION\" as specified by the user."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
-          "operation": "create",
-          "description": "Create the SPA root that owns the progression state machine (Boot → ... → Ending), renders the active screen, and handles forward transitions without backend calls."
-        },
-        {
-          "path": "frontend/src/game/flow.ts",
-          "operation": "create",
-          "description": "Define the canonical ordered flow (screen IDs, next mapping), plus helpers to advance/reset to ensure the required sequence is enforced."
-        },
-        {
-          "path": "frontend/src/game/GameShell.tsx",
-          "operation": "create",
-          "description": "Create a shared game-like shell layout (background, panel framing, header area, primary action area) used by all screens for consistent transitions and navigation affordances."
-        },
-        {
-          "path": "frontend/src/game/screens/index.ts",
-          "operation": "create",
-          "description": "Export and centralize the screen components so App can render them by screen ID without orphan components."
+          "path": "frontend/src/game/screens/Level4SupportMission.tsx",
+          "operation": "modify",
+          "description": "Update the Level 4 title to include the full level label (\"🔴 LEVEL 4 — SUPPORT MISSION\"), set the tagline to exactly \"During difficult matches, teammates stay.\", and replace the two appreciation moment strings to match the script verbatim (including the lowercase \"i\" and \"falling part\"). Ensure the UnlockSequence finalMessage remains exactly \"WE SURVIVED TOGETHER\" and remove any unrelated content from this screen so it matches only the Level 4 script. Uses shadcn-ui Card styling already present; verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Build the Boot Screen with exact loading-style text and a ▶ PRESS START button that transitions to Lobby.",
+      "summary": "Update Mini Game 3 (Penalty Shootout) prompt/question/choices to match the script exactly and ensure only the intended correct choice yields the success state and text.",
       "acceptanceCriteria": [
-        "Boot screen displays the provided lines of text including the player name “Awwds the white death”.",
-        "Pressing ▶ PRESS START transitions to the Lobby screen."
+        "Mini Game 3 displays the four choices with the same text as provided.",
+        "Selecting \"Efforts and showing up\" shows the success title \"GOAL!\" and success subtext \"GOAL SCORED IN JOSHI'S HEART\".",
+        "Selecting any other option triggers the mini-game failure flow (no false positives)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/game/screens/BootScreen.tsx",
-          "operation": "create",
-          "description": "Implement Screen 1 text blocks exactly as provided and render a primary action button labeled “▶ PRESS START” that calls the App advance handler. Use shadcn-ui components (e.g., Button/Card) for the panel/button styling; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/game/screens/MiniGame3Penalty.tsx",
           "operation": "modify",
-          "description": "Wire BootScreen into the screen registry/rendering and ensure initial state starts on Boot Screen."
+          "description": "Change the header prompt text to exactly \"FINAL CHANCE TO SCORE\" (no extra symbols), ensure the question reads exactly \"What always wins her heart?\", and ensure the four choices match the provided wording exactly and in order, with \"Efforts and showing up\" as the only correct answer (correctIndex remains aligned). Keep successTitle \"GOAL!\" and successSubtext \"GOAL SCORED IN JOSHI'S HEART\" verbatim. Uses shadcn-ui Card and the existing ChoiceMiniGame component; verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Build the Lobby screen with player/mode/status, teammate request notification, and ▶ START MATCH to Level 1.",
+      "summary": "Adjust the Final Proposal sequence to include the scripted pause beats before revealing the DUO MODE REQUEST content.",
       "acceptanceCriteria": [
-        "Lobby shows player name, mode=Solo, status=Online.",
-        "A notification element appears with text “New teammate request pending...”.",
-        "Pressing ▶ START MATCH transitions to Level 1."
+        "The proposal flow shows the \"Pause…\" and \"New mode?\" beat before the DUO MODE REQUEST content appears.",
+        "The DUO MODE REQUEST title and main message appear verbatim as provided."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/game/screens/LobbyScreen.tsx",
-          "operation": "create",
-          "description": "Implement Screen 2 layout showing Player/Mode/Status, a visible notification element with “New teammate request pending...”, and a primary action button labeled “▶ START MATCH”. Use shadcn-ui components (e.g., Card/Badge/Button) for game-like panels; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/game/screens/index.ts",
+          "path": "frontend/src/game/screens/FinalProposal.tsx",
           "operation": "modify",
-          "description": "Export LobbyScreen and map it to the Lobby step so it is reachable from Boot."
+          "description": "Refactor the proposal flow state so it displays \"MISSION COMPLETE\" and \"Solo mode finished.\", then shows the additional beat text \"Pause…\" followed by \"New mode?\" (with pacing via timed transitions and/or an explicit continue), and only then reveals the \"DUO MODE REQUEST\" title and the main message \"This game (of life) has been a lot more fun with you in it.\" verbatim. Keep existing YES interaction and advancement behavior intact. Uses shadcn-ui Card/Button already present; verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-4",
-      "summary": "Create Level 1 mission intro and sequential 'story loot' pop-up unlock beats, ending with mission complete + reward unlocked and continue to Mini Game 1.",
+      "summary": "Ensure the Ending/Achievement screen copy matches the provided script after YES: title, achievement name, rewards list text, and final quote.",
       "acceptanceCriteria": [
-        "Level 1 displays mission title “MISSION: HOW IT ALL STARTED”.",
-        "Each provided bullet point is revealed as an unlock-style pop-up/card in sequence (user-driven via Next/Continue, or timed).",
-        "Completing the sequence shows “MISSION COMPLETE” and “Reward unlocked: First Memory” and provides a control to continue to Mini Game 1."
+        "Ending screen title reads \"ACHIEVEMENT UNLOCKED\" and includes \"Valentine Partner 2026\".",
+        "Rewards list contains exactly 3 items with the same text as provided.",
+        "The quote \"Best matches are played with great teamwork.\" is displayed verbatim on the ending screen."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/game/screens/Level1OriginStory.tsx",
-          "operation": "create",
-          "description": "Implement Level 1 mission intro and sequential unlock cards for the provided story beats, concluding with “MISSION COMPLETE” and “Reward unlocked: First Memory” plus a continue action to Mini Game 1. Use shadcn-ui components for cards/dialog-like popups; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/game/components/UnlockSequence.tsx",
-          "operation": "create",
-          "description": "Create a reusable unlock-sequence presenter (step-by-step cards/popups with Next/Continue and optional mini-animations) to support Level 1 and other reward-style levels."
+          "path": "frontend/src/game/screens/EndingAchievement.tsx",
+          "operation": "modify",
+          "description": "Verify and adjust the Ending/Achievement screen strings so they match the script verbatim: title \"ACHIEVEMENT UNLOCKED\", achievement name \"Valentine Partner 2026\", exactly three rewards (same wording and order as provided), and the final quoted line \"Best matches are played with great teamwork.\" (including punctuation). Keep the screen as the post-YES destination only (no new navigation). Uses shadcn-ui Card styling already present; verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-5",
-      "summary": "Implement Mini Game 1 multiple-choice 'Defuse the Bad Day' with correct answer win state and retry on incorrect choices.",
+      "summary": "Add the generated achievement badge PNG as a static asset and render it on the Ending/Achievement screen.",
       "acceptanceCriteria": [
-        "The mini game shows the scenario text and all four choices.",
-        "Choosing “Call or Cuddle” shows a success result with “ROUND WON — TEAM SURVIVED” and a button to continue to Level 2.",
-        "Choosing any other option shows a failure/incorrect state and offers a retry without breaking the flow."
+        "A 512x512 PNG badge image exists at frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png.",
+        "Ending/Achievement screen displays the badge image without requesting it from the backend (served as a static asset)."
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/game/screens/MiniGame1Defuse.tsx",
-          "operation": "create",
-          "description": "Implement the scenario text and four choices; selecting “Call or Cuddle” shows success (“ROUND WON — TEAM SURVIVED”) and enables continue; other selections show an incorrect state and provide a retry control. Use shadcn-ui Button/Alert-like components as needed; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/game/components/ChoiceMiniGame.tsx",
-          "operation": "create",
-          "description": "Create a reusable multiple-choice mini-game component (prompt, options, correct option, success/failure panels, retry) to share between Mini Game 1 and Mini Game 3."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Implement Level 2 memory unlock sequence with “❤️ Memory Unlocked” treatment and continue to Mini Game 2.",
-      "acceptanceCriteria": [
-        "All listed memories appear as distinct unlock events/cards.",
-        "Each memory reveal includes the text “❤️ Memory Unlocked”.",
-        "User can proceed to Mini Game 2 after the unlock sequence completes."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/Level2MemoryArena.tsx",
-          "operation": "create",
-          "description": "Implement Level 2 where each provided memory is revealed as a reward-like unlock with the text “❤️ Memory Unlocked”, then provide a continue control to Mini Game 2. Reuse UnlockSequence for consistent treatment."
-        },
-        {
-          "path": "frontend/src/game/components/UnlockSequence.tsx",
-          "operation": "modify",
-          "description": "Extend UnlockSequence to support a per-item badge/label area so Level 2 can render “❤️ Memory Unlocked” consistently across unlock cards."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Implement Mini Game 2 chest drop/open interaction that reveals loot including “1 Million kissies” and continues to Level 3.",
-      "acceptanceCriteria": [
-        "A chest (or chest-like UI) appears and is clickable to open.",
-        "On open, loot is revealed including “1 Million kissies”.",
-        "After reveal, the user can continue to Level 3."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/MiniGame2LootChest.tsx",
-          "operation": "create",
-          "description": "Implement a clickable chest UI that transitions from closed to opened state and reveals loot text including “1 Million kissies”, then enable continue to Level 3. Render the chest image from frontend/public/assets/generated/loot-chest.dim_512x512.png."
-        },
-        {
-          "path": "frontend/src/game/components/LootChest.tsx",
-          "operation": "create",
-          "description": "Create a reusable chest interaction component (idle drop moment, click-to-open, reveal panel) to keep Mini Game 2 screen logic simple."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Implement Level 3 reasons list with a 'Relationship XP Increased' reward moment and continue to Level 4.",
-      "acceptanceCriteria": [
-        "All provided reasons are displayed clearly.",
-        "A reward moment appears with text “Relationship XP Increased”.",
-        "A continue control transitions to Level 4."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/Level3Reasons.tsx",
-          "operation": "create",
-          "description": "Render the provided reasons in a game-like list (e.g., checklist/loot-like entries) and show a reward UI moment reading “Relationship XP Increased”, then provide continue to Level 4. Use shadcn-ui list/panel primitives as appropriate; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/game/components/RewardToast.tsx",
-          "operation": "create",
-          "description": "Create a lightweight reward/XP popup component that can be triggered by screens to satisfy XP popup moments in the flow."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Implement Level 4 support mission appreciation beats with a result message 'WE SURVIVED TOGETHER' and continue to Mini Game 3.",
-      "acceptanceCriteria": [
-        "Level 4 displays the appreciation moments as distinct beats/cards.",
-        "Completing the sequence shows “WE SURVIVED TOGETHER”.",
-        "User can proceed to Mini Game 3."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/Level4SupportMission.tsx",
-          "operation": "create",
-          "description": "Implement Level 4 as sequential appreciation beats/cards (using UnlockSequence styling), ending with a result screen/message “WE SURVIVED TOGETHER” and continue to Mini Game 3."
-        },
-        {
-          "path": "frontend/src/game/components/UnlockSequence.tsx",
-          "operation": "modify",
-          "description": "Add support for a 'final result' panel after the last beat (used for “WE SURVIVED TOGETHER”)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "summary": "Implement Mini Game 3 FIFA penalty multiple-choice with correct answer success and retry on incorrect, then continue to Final Proposal.",
-      "acceptanceCriteria": [
-        "The mini game displays the question and all four choices.",
-        "Selecting “Efforts and showing up” shows “GOAL!” and “GOAL SCORED IN JOSHI'S HEART” and a continue control.",
-        "Other selections show an incorrect/non-goal state and provide retry."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/MiniGame3Penalty.tsx",
-          "operation": "create",
-          "description": "Implement the question and four choices; correct choice “Efforts and showing up” shows “GOAL!” and “GOAL SCORED IN JOSHI'S HEART” and allows continue; others show non-goal + retry. Reuse ChoiceMiniGame for behavior consistency."
-        },
-        {
-          "path": "frontend/src/game/components/ChoiceMiniGame.tsx",
-          "operation": "modify",
-          "description": "Extend ChoiceMiniGame to support custom success subtext (to render “GOAL SCORED IN JOSHI'S HEART”) in addition to the main success label."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Implement Final Proposal flow with 'DUO MODE REQUEST', romantic message, YES/TRY AGAIN buttons, and growing YES button until accepted, then transition to Ending.",
-      "acceptanceCriteria": [
-        "Final level shows the “DUO MODE REQUEST” moment and the exact question text.",
-        "Two buttons are shown: “YES ❤️” and “TRY AGAIN 😄”.",
-        "Each click on “TRY AGAIN 😄” increases the size (or visual prominence) of the “YES ❤️” button; the effect is cumulative.",
-        "Clicking “YES ❤️” transitions to the Ending/Achievement screen."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/FinalProposal.tsx",
-          "operation": "create",
-          "description": "Implement the final mission completion intro for solo mode, then the “❤️ DUO MODE REQUEST ❤️” moment, the romantic line, and the question “💘 Will you be my Valentine?” with buttons YES ❤️ and TRY AGAIN 😄. Track TRY AGAIN clicks to cumulatively increase YES button size/prominence until YES is clicked."
-        },
-        {
-          "path": "frontend/src/game/components/PixelHearts.tsx",
-          "operation": "create",
-          "description": "Create a pixel-heart animation component powered by the sprite sheet at frontend/public/assets/generated/pixel-hearts-sprites.dim_512x64.png, to be triggered on YES or other celebratory moments."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Implement the Ending/Achievement screen with the provided title, rewards list, and final line.",
-      "acceptanceCriteria": [
-        "Ending screen displays “🏆 Achievement Unlocked” and “Valentine Partner 2026”.",
-        "All three rewards are shown as a list.",
-        "Final line “Best matches are played with great teamwork.” is displayed."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/screens/EndingAchievement.tsx",
-          "operation": "create",
-          "description": "Implement the ending screen UI showing “🏆 Achievement Unlocked”, “Valentine Partner 2026”, the three rewards as a list, and the final quote line. Render the badge/trophy icon from frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png."
-        },
-        {
-          "path": "frontend/src/game/screens/index.ts",
-          "operation": "modify",
-          "description": "Export EndingAchievement and ensure FinalProposal YES transition advances to the ending step."
-        }
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "summary": "Add optional polish: toggleable sounds, XP/achievement popups, pixel hearts animation, inside-joke popups, and at least one fake loading transition between major sections.",
-      "acceptanceCriteria": [
-        "There is a simple sound on/off toggle in the UI (default can be on).",
-        "At least one XP popup moment and one achievement-style popup moment occur during the flow.",
-        "Pixel-heart visual animation appears at least once (e.g., on proposal YES or memory unlock).",
-        "At least one fake loading screen transition is used between major screens/levels."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/game/audio/SoundProvider.tsx",
-          "operation": "create",
-          "description": "Create a client-side sound manager with an on/off toggle (default on) and helper functions to play small UI sounds for clicks, unlocks, and achievements."
-        },
-        {
-          "path": "frontend/src/game/components/SoundToggle.tsx",
-          "operation": "create",
-          "description": "Create a small UI toggle control (sound on/off) placed in the shared shell. Use shadcn-ui Switch/Button components as appropriate; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/game/components/AchievementToast.tsx",
-          "operation": "create",
-          "description": "Create an achievement-style popup/toast component to display 'achievement unlocked' moments during the flow (distinct from XP popup)."
-        },
-        {
-          "path": "frontend/src/game/screens/FakeLoading.tsx",
-          "operation": "create",
-          "description": "Implement a fake loading interstitial screen (progress bar / loading text) that can be inserted between major sections to satisfy the loading-transition requirement."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Integrate SoundProvider, render the sound toggle in GameShell, trigger at least one XP popup (e.g., after Level 3) and one achievement popup (e.g., on Ending entry), trigger PixelHearts at least once (e.g., on proposal YES), and insert FakeLoading at least once between major screens."
-        }
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "summary": "Apply a consistent Fortnite/Valorant-inspired dark panel theme with bold typography and high-contrast accents (no blue/purple primary accents).",
-      "acceptanceCriteria": [
-        "All screens share consistent layout patterns (header/mission card/panel, primary action button, reward/toast styling).",
-        "Palette avoids blue and purple hues as the primary accents (use an alternative like black/charcoal + neon green/orange/red).",
-        "Typography and spacing feel like a game event UI (clear hierarchy, bold headings, readable body)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Create global styles and CSS variables to enforce a dark, high-contrast game UI theme with non-blue/non-purple primary accents (e.g., neon green/orange/red), plus consistent panel/button/toast styling hooks."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Adjust Tailwind theme extensions (as needed) to support the chosen accent palette and game-like typography/spacing utilities consistently across all screens."
-        },
-        {
-          "path": "frontend/src/game/GameShell.tsx",
-          "operation": "modify",
-          "description": "Enforce consistent layout patterns (mission header/panel, primary CTA placement, reward/toast region) so every screen visually matches the progression-screen style."
-        }
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "summary": "Add required generated images to public assets and render them in the UI (background, chest, badge/trophy, pixel heart sprite).",
-      "acceptanceCriteria": [
-        "All listed generated images are present under frontend/public/assets/generated.",
-        "UI loads these assets directly from the frontend (no backend image serving).",
-        "Assets are visibly used (event background, loot chest, achievement badge/trophy, pixel heart animation/sprite)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/valentine-event-bg.dim_1920x1080.png",
-          "operation": "create",
-          "description": "Add the generated background illustration asset as a static file at the required path."
-        },
-        {
-          "path": "frontend/public/assets/generated/loot-chest.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated loot chest illustration asset as a static file at the required path."
-        },
         {
           "path": "frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png",
           "operation": "create",
-          "description": "Add the generated achievement badge/trophy icon asset as a static file at the required path."
-        },
-        {
-          "path": "frontend/public/assets/generated/pixel-hearts-sprites.dim_512x64.png",
-          "operation": "create",
-          "description": "Add the generated 8-frame pixel heart sprite sheet asset as a static file at the required path."
-        },
-        {
-          "path": "frontend/src/game/GameShell.tsx",
-          "operation": "modify",
-          "description": "Render the background using frontend/public/assets/generated/valentine-event-bg.dim_1920x1080.png and ensure it is visible across the experience."
-        },
-        {
-          "path": "frontend/src/game/screens/MiniGame2LootChest.tsx",
-          "operation": "modify",
-          "description": "Ensure the chest interaction visibly uses frontend/public/assets/generated/loot-chest.dim_512x512.png."
+          "description": "Add the generated 512x512 PNG achievement badge asset at frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png so it is served as a static frontend file."
         },
         {
           "path": "frontend/src/game/screens/EndingAchievement.tsx",
           "operation": "modify",
-          "description": "Ensure the ending achievement UI visibly uses frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png."
-        },
-        {
-          "path": "frontend/src/game/components/PixelHearts.tsx",
-          "operation": "modify",
-          "description": "Ensure the pixel heart animation renders frames from frontend/public/assets/generated/pixel-hearts-sprites.dim_512x64.png and is used at least once in the flow."
+          "description": "Ensure the Ending/Achievement screen renders the badge image from the static asset path frontend/public/assets/generated/valentine-achievement-badge.dim_512x512.png (no backend fetch), and that its placement remains consistent with the achievement header. Verify the component's usage instructions before implementing."
         }
       ]
     }

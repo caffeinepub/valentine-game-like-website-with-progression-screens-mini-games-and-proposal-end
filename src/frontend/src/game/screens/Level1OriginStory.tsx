@@ -7,13 +7,13 @@ interface Level1OriginStoryProps {
 
 export function Level1OriginStory({ onAdvance }: Level1OriginStoryProps) {
   const storyBeats = [
-    { text: 'College event football and DJ night chaos' },
-    { text: 'Cigarette interaction even though both don\'t smoke' },
-    { text: 'Discovering both of them are from the same town, Kadapa' },
-    { text: 'Dramatic Insta Rejection' },
-    { text: 'Rejecting my cute BYE' },
-    { text: 'Stalking and Coincidence' },
-    { text: 'Plot twist: we might have grown up in the same colony' },
+    { text: 'Out of all the places that night, Teammate somehow ended up sitting on a random footpath, slightly drunk, when the player and his friends walked up to her.' },
+    { text: 'And the funniest part? Player, who doesn\'t smoke asked the Teammate who also doesn\'t smoke for a cigarette' },
+    { text: 'They talked, laughed, and then the teammate left… thinking that was probably the end of it.' },
+    { text: 'But somehow they kept running into each other that night.' },
+    { text: 'Player asked for teammate\'s Instagram, she refused, and still somehow later she was the one searching for your account.' },
+    { text: 'And then they discovered they\'re from the same town… maybe even grew up in the same colony without knowing.' },
+    { text: 'Some coincidences feel too weird to ignore.' },
   ];
 
   return (
@@ -31,6 +31,11 @@ export function Level1OriginStory({ onAdvance }: Level1OriginStoryProps) {
         onComplete={onAdvance}
         finalMessage="MISSION COMPLETE"
         finalBadge="🎯"
+        finalBody={
+          <p className="text-lg text-accent font-semibold">
+            Reward unlocked: First Memory
+          </p>
+        }
       />
     </div>
   );
